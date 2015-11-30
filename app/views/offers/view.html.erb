@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p><%= flash[:success] %></p>
+			<h2>Oferty dla Ciebie</h2>
+
+			<% @offers.each do |offer| %>
+				<%= incoming_offers(offer) %>
+			<% end %>
+
+			<br />
+
+			<h2>Twoje oferty</h2>
+
+			<% @offers.each do |offer| %>
+				<%= my_offers(offer) %>
+			<% end %>
+
+			<br />
+
+			<h2>Oferty przyjęte</h2>
+
+			<% @offers.each do |offer| %>
+				<%= accepted_offers(offer) %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+

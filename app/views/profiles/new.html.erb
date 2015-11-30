@@ -1,0 +1,11 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-8">
+			<h1>Twoje nowe dane profilowe:</h1>
+			<%= render 'form', :profile => @profile %>
+			<%= link_to 'Wszystkie produkty', products_path, :class => "btn btn-danger" %>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div> <!-- end container -->

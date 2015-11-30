@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-5 profilePanel">
+			<h4 class="profileTitle">Profil użytkownika: <%= current_user.email %></h4>
+			<%= image_tag(@profile.photo, :width => "200", :height => "200", :class => "img-rounded")%>
+			<p>Imię: <%= @profile.name %></p>
+
+			<% if current_user == @profile.user %>
+				<p>Nazwisko: <%= @profile.surname %></p>
+				<p>Miasto: <%= @profile.city %></p>
+				<p>Adres: Ul. <%= @profile.street %> <%= @profile.home_number %> / <%= @profile.place_number %></p>
+				<%= link_to "Edytuj Profil", edit_profile_path(@profile), class: "btn btn-primary" %>
+			<% else %>
+				<p>Miasto: <%= @profile.city %></p>
+
+		</div>
+		<div class="col-md-7"></div>
+	</div>
+	<div class="row">
+		<h4 class="profileTitle">Książki użytkownika:</h4>
+		<div class="ramka">
+			<% @profile.user.products.each do |product| %>
+					<span>
+					  		<%= link_to(image_tag(product.photo.url, :width => "150", :height => "150", :class => "img-rounded"), product_path(product))%>
+					</span>
+				<% end %>
+		</div>		
+			<% end %>			
+	</div>
+</div>

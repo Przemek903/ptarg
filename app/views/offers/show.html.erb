@@ -1,0 +1,60 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 offer">
+			<h2>Oferta</h2>
+
+			<h3>W ramach wymiany wchodzą produkty:</h3>
+
+			<div class="row">
+				<div class="col-md-6 offerPhoto">
+					<h5>
+						<% if @offerProduct.user = current_user %>
+							<p>Twój produkt:</p>
+						<% else %>
+							<p>Produkt oferowany:</p>
+						<% end %>
+					</h5>
+
+					<%= image_tag(@offerProduct.photo.url, :width => "150", :height => "125", :class => "img-rounded")%>
+					<%= link_to "Zabacz produkt", product_path(@offer.product_id), class: "btn btn-primary"%>
+
+					<% if @offer.status == 'zaakceptowany' %>
+
+					<% else %>
+						<% if current_user == @offerExchanger.user %>
+							<div class="btn btn-success offerButtons">
+								<%= link_to "Zaakceptuj oferte", :action => 'accept', :id => @offer.id %>
+							</div>
+						<% end %>
+					<% end %>
+				</div>
+
+				<div class="col-md-6 offerPhoto">
+					<h5>
+						<% if @offerExchanger.user = current_user %>
+							<p>Produkt oferowany:</p>
+						<% else %>
+							<p>Twój produkt:</p>
+						<% end %>
+					</h5>
+
+						<%= image_tag(@offerExchanger.photo.url, :width => "150", :height => "125", :class => "img-rounded")%>
+						<%= link_to "Zabacz produkt", product_path(@offer.exchanger_id), class: "btn btn-primary"%>
+					<% if @offer.status == 'zaakceptowany' %>
+
+					<% else %>
+						<% if current_user == @offerExchanger.user %>
+							<div class="btn btn-danger offerButtons">
+								<%= link_to "Odrzuć oferte", :action => 'breakup', :id => @offer.id  %>
+							</div>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+

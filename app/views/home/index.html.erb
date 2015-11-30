@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
+			<div class="panel panel-primary" id="panels">
+				<div class="panel-heading">Rodzaje:</div>
+					<% TypeOf.all.each do  |t| %>
+						<p><%= link_to "#{t.name}", type_of_path(t.id) %></p>
+					<% end %>
+			</div>
+		</div>
+		<div class="col-md-10 newBooks">
+				<h1>Najnowsze pozycje:</h1>
+				<div class="row">
+				<% @products.each do |product| %>
+					<div class="col-md-3 smallPhoto">
+					    <div>
+					  		<%= link_to(image_tag(product.photo.url, :width => "200", :height => "175", :class => "img-rounded"), product_path(product))%>
+					    </div>
+					    <p><%= product.name %></p>
+					</div>
+				<% end %>
+				<div class="col-md-3 buttonMiddle"><%= link_to "Zobacz wszsystkie", products_path, :class => "btn btn-primary" %></div>
+				</div>
+		</div>
+
+		<div class="col-md-10 yourBooks">
+				<h1>Twoje pozycje:</h1>
+				<div class="row">
+				<% @userPruoducts.each do |product| %>
+					<div class="col-md-3 smallPhoto">
+					    <div>
+					  		<%= link_to(image_tag(product.photo.url, :width => "200", :height => "175", :class => "img-rounded"), product_path(product))%>
+					    </div>
+					    <p><%= product.name %></p>
+					</div>
+				<% end %>
+				<div class="col-md-3 buttonMiddle"><%= link_to "Dodaj nową książkę", new_product_path, :class => "btn btn-primary" %></div>
+				</div>
+		</div>
+	</div>
+</div>

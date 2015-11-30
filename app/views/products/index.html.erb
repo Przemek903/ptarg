@@ -1,0 +1,9 @@
+<% @products.each do |product| %>
+  <div class="img">
+    <%= link_to(image_tag(product.photo.url, :width => "200", :height => "200", :class => "img-rounded" ), product_path(product)) %>
+    <div class="desc">
+      <p>Tytuł: <%= product.name %></p>
+      <p>Autor: <%= product.author %></p>
+    </div>
+  </div>
+<% end %>

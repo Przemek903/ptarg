@@ -1,0 +1,49 @@
+<%= form_for(product) do |f| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, "Tytuł" %><br>
+    <%= f.text_field :name, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :author, "Autor" %><br>
+    <%= f.text_field :author, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :condition_id, "Stan" %><br>
+    <%= f.select(:condition_id, options_from_collection_for_select(Condition.all, :id, :name), {:prompt => 'Jaki jest stan
+      książki ?'}, :class => "form-control") %>
+  </div>
+  <div class="form-group ">
+    <%= f.label :Rodzaj %><br>
+    <% TypeOf.all.each do |t| %>
+      <div><%= f.radio_button( :type_of_id, "#{t.id}") %>
+      <%= f.label :type_of_id, "#{t.name}" %></div>
+    <% end %>
+  </div><br>
+  <div class="form-group">
+    <%= f.label :description, "Opis" %><br>
+    <%= f.text_area :description, :class => "form-control" %>
+  </div>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <div class="form-group">
+    <%= product.photo_url if product.photo? %>
+    <%= f.file_field :photo %>
+    <%= f.hidden_field :photo_cache %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Dodaj nową książkę", :class => "btn btn-primary" %>
+  </div>
+<% end %>
