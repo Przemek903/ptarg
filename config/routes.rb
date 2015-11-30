@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'type_of/view'
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   root 'home#index'
 

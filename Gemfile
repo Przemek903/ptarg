@@ -32,6 +32,7 @@ gem 'friendly_id', '~> 5.0.0'
 
 gem 'carrierwave'
 
+gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'devise'
 gem "devise-encryptable"
 

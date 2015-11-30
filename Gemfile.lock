@@ -128,6 +128,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    recaptcha (1.0.0)
+      json
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     rsolr (1.0.13)
@@ -186,6 +188,7 @@ DEPENDENCIES
   pg (= 0.17.1)
   rails (= 4.2.4)
   rails_12factor (= 0.0.2)
+  recaptcha
   sass-rails
   sdoc (~> 0.4.0)
   sqlite3
