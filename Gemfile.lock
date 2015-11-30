@@ -64,6 +64,8 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-encryptable (0.2.0)
+      devise (>= 2.1.0)
     erubis (2.7.0)
     execjs (2.6.0)
     friendly_id (5.0.5)
@@ -177,6 +179,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails
   devise
+  devise-encryptable
   friendly_id (~> 5.0.0)
   jbuilder
   jquery-rails

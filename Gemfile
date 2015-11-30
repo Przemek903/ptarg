@@ -33,6 +33,7 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'carrierwave'
 
 gem 'devise'
+gem "devise-encryptable"
 
 gem 'will_paginate', '~> 3.0'
 

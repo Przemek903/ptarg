@@ -98,7 +98,8 @@ Devise.setup do |config|
 
   # Setup a pepper to generate the encrypted password.
   # config.pepper = 'dbe0a28720ea0083da10e2464dcf65f37aef2f8b6451edeb570794d088a74bcb053546caf67ad40f4f5f12f6d1f875f3e8459fe05b745e4156ed08630cd480a9'
-
+  # config.apply_schema = false
+  # config.use_salt_as_remember_token = true
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
   # confirming their account. For instance, if set to 2.days, the user will be
@@ -199,7 +200,7 @@ Devise.setup do |config|
   # REST_AUTH_SITE_KEY to pepper).
   #
   # Require the `devise-encryptable` gem when using anything other than bcrypt
-  # config.encryptor = :sha512
+  config.encryptor = :md5
 
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
