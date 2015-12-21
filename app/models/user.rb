@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable,
          :encryptable, :encryptor => :md5
 
-  has_many :products
-  has_one :profile
+  has_many :products, dependent: :destroy
+  has_one :profile, dependent: :destroy
 end
